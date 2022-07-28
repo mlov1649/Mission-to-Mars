@@ -1,4 +1,4 @@
-from Flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for
 from flask_pymongo import PyMongo
 import scraping
 
@@ -21,7 +21,9 @@ def scrape():
    mars.update_one({}, {"$set":mars_data}, upsert=True)
    return redirect('/', code=302)
 
-
+# if __name__ == "__main__":
+#     from waitress import serve
+#     serve(app, host="0.0.0.0", port=8080)
 
 
 if __name__ == "__main__":
